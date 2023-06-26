@@ -20,13 +20,14 @@ const styles = {
     fontStyle: 'italic',
     ml: '2%',
     '@media screen and (min-width : 900px)': {
-      fontSize: '2.5em',
+      fontSize: '2.5rem',
     },
   },
   tagline: {
     display: 'none',
     '@media screen and (min-width : 900px)': {
       display: 'flex',
+      fontSize: '1.25rem',
     },
   },
   headerLogo: {
