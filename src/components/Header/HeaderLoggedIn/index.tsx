@@ -13,8 +13,7 @@ const styles = {
     my: '0.5rem',
     '@media screen and (min-width : 900px)': {
       display: 'flex',
-      justifyContent: 'space-between',
-      gap: '15rem',
+      gap: '8rem',
       alignItems: 'center',
       textAlign: 'center',
       width: '100vw',
@@ -29,21 +28,20 @@ const styles = {
     display: 'none',
     '@media screen and (min-width : 900px)': {
       display: 'flex',
-      minWidth: '60rem',
       alignItems: 'center',
+      justifyContent: 'center',
     },
   },
   headerTagline: {
     '@media screen and (min-width: 900px)': {
       paddingLeft: '0.7rem',
-      fontSize: '1.44em',
+      fontSize: '1.25rem',
     },
   },
   headerTitle: {
     fontSize: '2rem',
     fontStyle: 'italic',
     fontWeight: 'bold',
-    ml: '2%',
   },
   headerContainerRightIcons: {
     display: 'flex',
