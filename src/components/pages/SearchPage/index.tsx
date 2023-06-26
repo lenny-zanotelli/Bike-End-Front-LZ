@@ -128,7 +128,6 @@ function SearchPage() {
 
   const handleAutoCompleteChange = (event: ChangeEvent<HTMLInputElement>) => {
     const newValue = event.target.value;
-    console.log(newValue);
     dispatch(fetchAutoComplete(newValue));
   };
 

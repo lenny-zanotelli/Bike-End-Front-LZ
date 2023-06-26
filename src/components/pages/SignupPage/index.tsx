@@ -29,48 +29,53 @@ import {
 import AlertMessage from '../../AlertMessage';
 import MainLayout from '../../MainLayout';
 
-const buttonStyle = {
-  mt: '1rem',
-  py: '0.7rem',
-  px: '1.5rem',
-  backgroundColor: '#4CAF50',
-  ':hover': {
+const styles = {
+  buttonStyle: {
+    mt: '1rem',
+    py: '0.7rem',
+    px: '1.5rem',
     backgroundColor: '#4CAF50',
+    ':hover': {
+      backgroundColor: '#4CAF50',
+    },
+    color: 'white',
+    border: 'none',
+    borderRadius: '3px',
   },
-  color: 'white',
-  border: 'none',
-  borderRadius: '3px',
-
-} as const;
-
-const inputStyle = {
-  width: '80%',
-  my: '0.5rem',
-  backgroundColor: 'white',
-} as const;
-
-const alreadyAnAccount = {
-  my: '1rem',
-  fontSize: '0.6rem',
-  color: 'black',
-} as const;
-
-const alreadyAnAccountSpan = {
-  my: '1rem',
-  fontSize: '0.6rem',
-  color: 'blue',
-  pl: '0.3rem',
+  inputStyle: {
+    width: '80%',
+    my: '0.5rem',
+    backgroundColor: 'white',
+  },
+  alreadyAnAccount: {
+    my: '1rem',
+    fontSize: '0.6rem',
+    color: 'black',
+  },
+  alreadyAnAccountSpan: {
+    my: '1rem',
+    fontSize: '0.6rem',
+    color: 'blue',
+    pl: '0.3rem',
+  },
 } as const;
 
 function SignupPage() {
+  // This regex matches only when all the following are true:
+  // password must contain 1 number (0-9)
+  // password must contain 1 uppercase letters
+  // password must contain 1 lowercase letters
+  // password must contain 1 non-alpha numeric number
+  // password is 8-16 characters with no space
+  const PWD_REGEX = /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,16}$/;
+  const EMAIL_REGEX = /^[\w-.]+@([\w-]+\.)+[\w-]{2,10}$/;
+
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const email = useAppSelector((state) => state.login.credentials.email);
-  const password = useAppSelector((state) => state.login.credentials.password);
-  const firstname = useAppSelector((state) => state.login.credentials.firstname);
-  const lastname = useAppSelector((state) => state.login.credentials.lastname);
-  const passwordCheck = useAppSelector((state) => state.login.credentials.passwordCheck);
+  const {
+    email, password, firstname, lastname, passwordCheck,
+  } = useAppSelector((state) => state.login.credentials);
   const acceptedConditions = useAppSelector((state) => state.login.acceptedConditions);
   const isLogged = useAppSelector((state) => state.login.logged);
   const [showPassword, setShowPassword] = useState(false);
@@ -90,29 +95,20 @@ function SignupPage() {
 
   const handleChangeCheckBox = () => {
     dispatch(toggleAcceptedConditions());
-    // console.log('test checkbox');
   };
 
   const handleSubmitForm = (event: FormEvent<HTMLFormElement>) => {
-    // This regex matches only when all the following are true:
-    // password must contain 1 number (0-9)
-    // password must contain 1 uppercase letters
-    // password must contain 1 lowercase letters
-    // password must contain 1 non-alpha numeric number
-    // password is 8-16 characters with no space
-    const pwdRegex = /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,16}$/;
-    const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,10}$/;
     event.preventDefault();
 
     if (password !== passwordCheck) {
       dispatch(setDisplaySnackbar({ severity: 'error', message: 'Les mots de passe saisis ne sont pas identitiques' }));
       return;
     }
-    if (!pwdRegex.test(password)) {
+    if (!PWD_REGEX.test(password)) {
       dispatch(setDisplaySnackbar({ severity: 'error', message: 'Votre mot de passe doit avoir une taille d\'au moins 8 charactères, maximum 16 caractères et contenir: une lettre majuscule, une lettre minuscule, un chiffre et un caractère spécial' }));
       return;
     }
-    if (!emailRegex.test(email)) {
+    if (!EMAIL_REGEX.test(email)) {
       dispatch(setDisplaySnackbar({ severity: 'error', message: 'Votre email doit être au bon format : example@domain.xyz' }));
       return;
     }
@@ -169,7 +165,7 @@ function SignupPage() {
           >
             <TextField
             // TODO Créer des errors sous les TextField pour informer l'user
-              sx={inputStyle}
+              sx={styles.inputStyle}
               color="success"
               fullWidth
               required
@@ -181,7 +177,7 @@ function SignupPage() {
             />
             <TextField
               required
-              sx={inputStyle}
+              sx={styles.inputStyle}
               color="success"
               name="lastname"
               label="Nom"
@@ -191,7 +187,7 @@ function SignupPage() {
             />
             <TextField
               required
-              sx={inputStyle}
+              sx={styles.inputStyle}
               color="success"
               type="email"
               name="email"
@@ -202,7 +198,7 @@ function SignupPage() {
             />
             <TextField
               required
-              sx={inputStyle}
+              sx={styles.inputStyle}
               color="success"
               type={showPassword ? 'text' : 'password'}
               name="password"
@@ -227,7 +223,7 @@ function SignupPage() {
             />
             <TextField
               required
-              sx={inputStyle}
+              sx={styles.inputStyle}
               color="success"
               type={showPassword ? 'text' : 'password'}
               name="passwordCheck"
@@ -264,21 +260,21 @@ function SignupPage() {
             </div>
             <Link
               href="/login"
-              sx={alreadyAnAccount}
+              sx={styles.alreadyAnAccount}
               underline="none"
               variant="button"
             >
               Déjà un compte ?
               <Typography
                 component="span"
-                sx={alreadyAnAccountSpan}
+                sx={styles.alreadyAnAccountSpan}
               >
                 Connectez vous !
               </Typography>
             </Link>
             <Button
               type="submit"
-              sx={buttonStyle}
+              sx={styles.buttonStyle}
               variant="contained"
             >
               Valider

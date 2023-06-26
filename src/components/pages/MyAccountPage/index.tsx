@@ -171,12 +171,7 @@ function MyAccount() {
           <Typography
             variant="h2"
             className="container__createAccount__title"
-            sx={{
-              fontSize: '1.25em',
-              mb: '1rem',
-              py: '1rem',
-              px: '2rem',
-            }}
+            sx={styles.containerCreateAccountTitle}
           >
             MES INFORMATIONS
             <Button

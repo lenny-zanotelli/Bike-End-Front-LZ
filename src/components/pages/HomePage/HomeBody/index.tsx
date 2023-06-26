@@ -21,11 +21,24 @@ const styles = {
       fontWeight: 'bold',
     },
   },
+  connectBtn: {
+    fontSize: '0.7rem',
+    color: '#788896',
+    textDecoration: 'underline',
+    textDecorationColor: '#CED4D9',
+    textUnderlineOffset: '3px',
+    my: '0.5rem',
+  },
+  createAccountBtn: {
+    backgroundColor: '#207868',
+    ':hover': {
+      backgroundColor: '#0b5447',
+    },
+  },
 };
 
 function HomeBody() {
   return (
-
     <Box
       className="container__body"
       component="main"
@@ -41,44 +54,27 @@ function HomeBody() {
         praesentium saepe qui eveniet
         amet facere ratione vel distinctio.
       </Typography>
-      {/* router pas encore fait, je laisse un anchor pour l'instant */}
       <Link to="signup">
         <Button
           className="body__create-account-btn"
           variant="contained"
           size="large"
-          sx={{
-            backgroundColor: '#207868',
-            ':hover': {
-              backgroundColor: '#0b5447',
-					  },
-          }}
+          sx={styles.createAccountBtn}
         >
           Rejoindre l&apos;Aventure
         </Button>
       </Link>
-      {/* router pas encore fait, je laisse un anchor pour l'instant */}
       <Link to="login">
-
         <Button
           className="body__connect-btn"
           variant="text"
           size="small"
-          sx={{
-					  fontSize: '0.7rem',
-            color: '#788896',
-            textDecoration: 'underline',
-            textDecorationColor: '#CED4D9',
-            textUnderlineOffset: '3px',
-            my: '0.5rem',
-          }}
+          sx={styles.connectBtn}
         >
           Se connecter
         </Button>
       </Link>
-
     </Box>
-
   );
 }
 

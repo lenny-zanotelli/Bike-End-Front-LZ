@@ -31,6 +31,11 @@ import AlertMessage from '../../AlertMessage';
 import MainLayout from '../../MainLayout';
 
 const styles = {
+  mainContainer: {
+    display: 'flex',
+    alignItems: 'center',
+    flexDirection: 'column',
+  },
   containerConnect: {
     width: '70vw',
     mt: '3rem',
@@ -75,8 +80,7 @@ const styles = {
 function LoginPage() {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const email = useAppSelector((state) => state.login.credentials.email);
-  const password = useAppSelector((state) => state.login.credentials.password);
+  const { email, password } = useAppSelector((state) => state.login.credentials);
   const isLogged = useAppSelector((state) => state.login.logged);
   const error = useAppSelector((state) => state.login.error);
   const [showPassword, setShowPassword] = useState(false);
@@ -120,11 +124,7 @@ function LoginPage() {
         className="container"
         component="main"
         maxWidth="lg"
-        sx={{
-          display: 'flex',
-          alignItems: 'center',
-          flexDirection: 'column',
-        }}
+        sx={styles.mainContainer}
       >
         <Box
           className="container__connect"

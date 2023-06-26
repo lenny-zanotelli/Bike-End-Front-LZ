@@ -46,6 +46,11 @@ const styles = {
     position: 'relative',
     border: 'solid 1px',
   },
+  cardTitle: {
+    fontWeight: 'bold',
+    fontStyle: 'italic',
+    fontSize: '0.8em',
+  },
   image: {
     opacity: 0.2,
     backgroundSize: 'cover',
@@ -191,11 +196,7 @@ function FavoritePage() {
                   <Typography
                     color="black"
                     align="center"
-                    sx={{
-                      fontWeight: 'bold',
-                      fontStyle: 'italic',
-                      fontSize: '0.8em',
-                    }}
+                    sx={styles.cardTitle}
                   >
                     {favorite.to.name.slice(0, MAX_NAME_LENGTH)}
                     {favorite.to.name.length > MAX_NAME_LENGTH ? '...' : ''}
