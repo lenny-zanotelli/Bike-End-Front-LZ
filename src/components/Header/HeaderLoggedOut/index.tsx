@@ -1,4 +1,4 @@
-import { Container, Link as MuiLink, Typography } from '@mui/material';
+import { Container, Typography } from '@mui/material';
 import PedalBikeIcon from '@mui/icons-material/PedalBike';
 import { Link } from 'react-router-dom';
 
@@ -53,15 +53,13 @@ function HeaderLoggedOut() {
         fontSize="large"
       />
       <Link to="/">
-        <MuiLink underline="none" color="inherit">
-          <Typography
-            component="h1"
-            className="header__container__title"
-            sx={styles.headerContainerTitle}
-          >
-            BikeEnd
-          </Typography>
-        </MuiLink>
+        <Typography
+          component="h1"
+          className="header__container__title"
+          sx={styles.headerContainerTitle}
+        >
+          BikeEnd
+        </Typography>
       </Link>
       <Typography
         component="h2"

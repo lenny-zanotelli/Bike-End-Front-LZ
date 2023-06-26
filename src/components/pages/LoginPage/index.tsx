@@ -195,12 +195,10 @@ function LoginPage() {
           </form>
 
           <Link to="/signup">
-            <MuiLink
+            <Typography
               sx={styles.containerConnectForgotPassword}
-              underline="none"
-              variant="button"
+              component="span"
             >
-
               Pas de compte ?
               <Typography
                 component="span"
@@ -208,8 +206,7 @@ function LoginPage() {
               >
                 Créez un compte !
               </Typography>
-
-            </MuiLink>
+            </Typography>
           </Link>
           <Button
             className="container__connect__forgotPassword"
