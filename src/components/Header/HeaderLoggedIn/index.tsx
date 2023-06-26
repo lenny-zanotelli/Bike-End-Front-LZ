@@ -11,7 +11,7 @@ const styles = {
     display: 'flex',
     justifyContent: 'center',
     my: '0.5rem',
-    '@media screen and (min-width : 768px)': {
+    '@media screen and (min-width : 900px)': {
       display: 'flex',
       justifyContent: 'space-between',
       gap: '15rem',
@@ -27,16 +27,16 @@ const styles = {
   },
   headerTitleTagline: {
     display: 'none',
-    '@media screen and (min-width : 768px)': {
+    '@media screen and (min-width : 900px)': {
       display: 'flex',
-      width: '60rem',
+      minWidth: '60rem',
       alignItems: 'center',
     },
   },
   headerTagline: {
-    '@media screen and (min-width: 768px)': {
+    '@media screen and (min-width: 900px)': {
       paddingLeft: '0.7rem',
-      fontSize: '1.44rem',
+      fontSize: '1.44em',
     },
   },
   headerTitle: {
@@ -49,7 +49,7 @@ const styles = {
     display: 'flex',
     gap: '0.5rem',
     justifyContent: 'flex-end',
-    '@media screen and (min-width: 768px)': {
+    '@media screen and (min-width: 900px)': {
       width: 'auto',
     },
   },

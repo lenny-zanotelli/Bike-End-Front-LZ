@@ -32,37 +32,44 @@ import {
 import MainLayout from '../../MainLayout';
 
 const styles = {
+  mainContainer: {
+    display: 'flex',
+    alignItems: 'center',
+    flexDirection: 'column',
+    height: '80vh',
+    gap: '1rem',
+  },
   containerAccount: {
-    width: '70vw',
     mt: '1rem',
     borderRadius: '5px',
     p: '1rem',
     textAlign: 'center',
     backgroundColor: 'rgb(154, 183, 192, 0.3)',
-    '@media only screen and (min-device-width : 768px)': {
-      maxWidth: '35%',
-    },
   },
   containerAccountTitle: {
     fontSize: '2rem',
     py: '1rem',
     px: '2rem',
   },
+  containerCreateAccountTitle: {
+    fontSize: '1.25em',
+    mb: '1rem',
+    py: '1rem',
+    px: '2rem',
+  },
   buttonStyle: {
-    width: '60%',
+    minWidth: '20rem',
     mt: '1rem',
     py: '0.7rem',
     px: '1.5rem',
     backgroundColor: 'grey',
     ':hover': {
       backgroundColor: 'lightgrey',
+      color: 'black',
     },
     color: 'white',
     border: 'none',
     borderRadius: '3px',
-    '@media only screen and (min-device-width : 768px)': {
-      width: '35%',
-    },
   },
   inputStyle: {
     width: '80%',
@@ -76,8 +83,8 @@ const styles = {
     borderRadius: '5px',
     textAlign: 'center',
     backgroundColor: 'rgb(154, 183, 192, 1)',
-    '@media only screen and (min-device-width : 768px)': {
-      maxWidth: '35%',
+    '@media screen and (min-width : 900px)': {
+      maxWidth: '35rem',
     },
   },
   closeButton: {
@@ -99,7 +106,6 @@ function MyAccount() {
   );
     // MODAL
   const [open, setOpen] = useState(false);
-  // const [text, setText] = useState('');
 
   const handleChangeField = (event: ChangeEvent<HTMLInputElement>) => {
     const newValue = event.target.value;
@@ -148,21 +154,12 @@ function MyAccount() {
       <Container
         component="main"
         className="container"
-        sx={{
-          display: 'flex',
-          alignItems: 'center',
-          flexDirection: 'column',
-          mt: '1rem',
-          height: '80vh',
-        }}
+        sx={styles.mainContainer}
       >
         <Typography
           variant="h1"
           className="container__account__title"
-          sx={{
-            fontSize: '1.8em',
-            mb: '1rem',
-          }}
+          sx={styles.containerAccountTitle}
         >
           Mon compte
         </Typography>
@@ -175,7 +172,7 @@ function MyAccount() {
             variant="h2"
             className="container__createAccount__title"
             sx={{
-              fontSize: '1em',
+              fontSize: '1.25em',
               mb: '1rem',
               py: '1rem',
               px: '2rem',
@@ -210,12 +207,7 @@ function MyAccount() {
                 <Typography
                   variant="h2"
                   className="container__createAccount__title"
-                  sx={{
-                    fontSize: '1.3em',
-                    mb: '1rem',
-                    py: '1rem',
-                    px: '2rem',
-                  }}
+                  sx={styles.containerCreateAccountTitle}
                 >
                   Modifier vos informations
                 </Typography>
@@ -230,7 +222,6 @@ function MyAccount() {
                 <TextField
                   sx={styles.inputStyle}
                   color="success"
-                  fullWidth
                   name="firstname"
                   label="Prenom"
                   size="small"
@@ -290,7 +281,6 @@ function MyAccount() {
           </MuiLink>
         </Link>
         <Button
-          fullWidth
           type="submit"
           sx={styles.buttonStyle}
           variant="contained"

@@ -1,7 +1,7 @@
 import { createAction, createReducer } from '@reduxjs/toolkit';
 import { axiosInstance as axios } from '../../utils/axios';
 import { createAppAsyncThunk } from '../../utils/redux';
-import { getUserDataFromLocalStorage, removeUserDataFromLocalStorage } from '../../utils/login';
+import { getUserDataFromLocalStorage, removeUserDataFromLocalStorage } from '../../utils/localStorageUserData';
 
 interface LoginStates {
   logged: boolean;

@@ -27,7 +27,7 @@ import { fetchAutoComplete } from '../../../store/reducers/autoComplete';
 
 const styles = {
   container: {
-    '@media only screen and (min-device-width : 768px)': {
+    '@media screen and (min-width : 900px)': {
       maxWidth: '50%',
     },
   },
@@ -36,7 +36,7 @@ const styles = {
     textAlign: 'center',
     fontWeight: 'bold',
     mt: '2rem',
-    '@media only screen and (min-device-width : 768px)': {
+    '@media screen and (min-width : 900px)': {
       fontWeight: 'bolder',
       fontSize: '1.8rem',
       paddingBottom: '0.5rem',
@@ -83,7 +83,7 @@ const styles = {
     gap: '0.8rem',
   },
   desktopContainer: {
-    '@media only screen and (min-device-width : 768px)': {
+    '@media screen and (min-width : 900px)': {
       display: 'flex',
       flexDirection: 'row',
       alignItems: 'center',
@@ -91,7 +91,7 @@ const styles = {
   },
   desktopContainerImg: {
     display: 'none',
-    '@media only screen and (min-device-width : 768px)': {
+    '@media screen and (min-width : 900px)': {
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
@@ -99,7 +99,7 @@ const styles = {
   },
   containerSubtitle: {
     display: 'none',
-    '@media only screen and (min-device-width : 768px)': {
+    '@media screen and (min-width : 900px)': {
       fontStyle: 'italic',
       fontWeight: 'bold',
       textAlign: 'center',
@@ -108,7 +108,7 @@ const styles = {
   },
   underline: {
     display: 'none',
-    '@media only screen and (min-device-width : 768px)': {
+    '@media screen and (min-width : 900px)': {
       color: '#9EADBA',
       display: 'block',
     },
@@ -231,22 +231,6 @@ function SearchPage() {
                 )}
                 onChange={handleSelectedCityIdChange}
               />
-              {/*
-  <TextField
-  className="search-form__input-city"
-  fullWidth
-  name="city-end"
-  placeholder="Lieu d'arrivé"
-  aria-placeholder="Lieu d'arrivé"
-  color="success"
-  InputProps={{
-    endAdornment: (
-      <InputAdornment position="end">
-      <LocationOnIcon />
-      </InputAdornment>
-      ),
-    }}
-  /> */}
               <Container
                 component="article"
                 className="search-form__filter-section"
@@ -275,51 +259,6 @@ function SearchPage() {
                 />
               </Container>
             </Container>
-            {/* <Container
-    component="section"
-    className="container__filter-form"
-    />
-    <Container
-    component="article"
-    className="filter-form__criteria"
-    sx={styles.filterFormCriteria}
-    >
-    <Typography
-    component="h2"
-    className="filter-form__title"
-    sx={styles.filterFormTitle}
-    >
-    Filtres :
-    </Typography>
-    <TextField
-      size="small"
-      type="number"
-      placeholder="Budget"
-      className="filter-form__input_euro"
-      sx={styles.filterFormInput}
-      InputProps={{
-        endAdornment: (
-          <InputAdornment position="end">
-          <EuroRoundedIcon />
-          </InputAdornment>
-        ),
-      }}
-      />
-      <TextField
-      size="small"
-      className="filter-form__input_journey-travel"
-      type="text"
-      placeholder="Temps de trajet"
-      sx={styles.filterFormInput}
-      InputProps={{
-        endAdornment: (
-          <InputAdornment position="end">
-          <UpdateRoundedIcon />
-          </InputAdornment>
-          ),
-        }}
-        />
-      </Container> */}
             <Container
               component="article"
               className="filter-form__btn"
@@ -335,15 +274,6 @@ function SearchPage() {
               >
                 Recherche
               </Button>
-              {/* <Button
-    className="filter-form__btn-reset"
-    type="button"
-    size="large"
-    variant="contained"
-    color="error"
-    >
-    Réinitialiser
-  </Button> */}
             </Container>
           </form>
         </Container>
