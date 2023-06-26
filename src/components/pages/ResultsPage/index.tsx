@@ -18,7 +18,7 @@ const styles = {
     justifyContent: 'center',
     gap: '30px',
     width: '80%',
-    heigh: '100vh',
+    height: '100vh',
     overflow: 'auto',
   },
   card: {
@@ -89,7 +89,7 @@ function ResultsPage() {
 
   return (
     <MainLayout>
-      <Container component="main" maxWidth={false} sx={{ height: '80vh', overflow: 'auto' }}>
+      <Container component="main" maxWidth={false} sx={{ height: '87vh', overflow: 'auto' }}>
         <Typography
           component="h2"
           color="black"
