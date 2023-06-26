@@ -14,7 +14,7 @@ const styles = {
     fontSize: '3.5rem',
     fontWeight: 'bolder',
     fontStyle: 'italic',
-    '@media screen and (min-width: 768px)': {
+    '@media screen and (min-width: 900px)': {
       fontSize: '8rem',
     },
   },

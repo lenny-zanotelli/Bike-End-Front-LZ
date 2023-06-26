@@ -11,7 +11,7 @@ const styles = {
     gap: '1rem',
     width: '100vw',
     p: '0.5rem',
-    '@media screen and (min-width : 768px)': {
+    '@media screen and (min-width : 900px)': {
       background: '#D1EFEC',
     },
   },
@@ -19,18 +19,18 @@ const styles = {
     fontSize: '2rem',
     fontStyle: 'italic',
     ml: '2%',
-    '@media screen and (min-width : 768px)': {
+    '@media screen and (min-width : 900px)': {
       fontSize: '2.5em',
     },
   },
   tagline: {
     display: 'none',
-    '@media screen and (min-width : 768px)': {
+    '@media screen and (min-width : 900px)': {
       display: 'flex',
     },
   },
   headerLogo: {
-    '@media screen and (min-width : 768px)': {
+    '@media screen and (min-width : 900px)': {
       display: 'none',
     },
 

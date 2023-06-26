@@ -38,7 +38,7 @@ const styles = {
     p: '1rem',
     textAlign: 'center',
     backgroundColor: 'rgb(154, 183, 192, 0.3)',
-    '@media only screen and (min-device-width : 768px)': {
+    '@media only screen and (min-device-width : 900px)': {
       maxWidth: '35%',
     },
   },

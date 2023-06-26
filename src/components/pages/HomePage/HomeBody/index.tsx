@@ -1,7 +1,6 @@
 import { Box, Button, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 
-
 const styles = {
   containerBody: {
     m: '2rem',
@@ -9,7 +8,7 @@ const styles = {
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    '@media screen and (min-width: 768px)': {
+    '@media screen and (min-width: 900px)': {
       marginTop: '4rem',
     },
   },
@@ -17,7 +16,7 @@ const styles = {
     textAlign: 'center',
     fontSize: '1rem',
     py: '0.5rem',
-    '@media screen and (min-width: 768px)': {
+    '@media screen and (min-width: 900px)': {
       fontSize: '1.15rem',
       fontWeight: 'bold',
     },
@@ -77,7 +76,6 @@ function HomeBody() {
           Se connecter
         </Button>
       </Link>
-
 
     </Box>
 
