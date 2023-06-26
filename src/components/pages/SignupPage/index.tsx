@@ -8,6 +8,7 @@ import {
   InputAdornment,
   IconButton,
   Link,
+  Box,
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import {
@@ -30,8 +31,26 @@ import AlertMessage from '../../AlertMessage';
 import MainLayout from '../../MainLayout';
 
 const styles = {
+  container: {
+    display: 'flex',
+    alignItems: 'center',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    mt: '1.5rem',
+  },
+  containerCreateAccount: {
+    width: '80vw',
+    borderRadius: '5px',
+    py: '1rem',
+    textAlign: 'center',
+    backgroundColor: 'rgb(154, 183, 192, 0.3)',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   buttonStyle: {
-    mt: '1rem',
+    mt: '0.5rem',
     py: '0.7rem',
     px: '1.5rem',
     backgroundColor: '#4CAF50',
@@ -48,7 +67,7 @@ const styles = {
     backgroundColor: 'white',
   },
   alreadyAnAccount: {
-    my: '1rem',
+    my: '0.5rem',
     fontSize: '0.6rem',
     color: 'black',
   },
@@ -57,6 +76,19 @@ const styles = {
     fontSize: '0.6rem',
     color: 'blue',
     pl: '0.3rem',
+  },
+  containerText: {
+    width: '80%',
+    textAlign: 'center',
+    fontSize: '0.7rem',
+    mt: '0.5rem',
+    fontStyle: 'italic',
+  },
+  containerFooter: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 } as const;
 
@@ -78,6 +110,7 @@ function SignupPage() {
   } = useAppSelector((state) => state.login.credentials);
   const acceptedConditions = useAppSelector((state) => state.login.acceptedConditions);
   const isLogged = useAppSelector((state) => state.login.logged);
+
   const [showPassword, setShowPassword] = useState(false);
 
   const handleClickPassword = () => setShowPassword((show) => !show);
@@ -125,29 +158,12 @@ function SignupPage() {
     <MainLayout>
       <Container
         className="container"
-        sx={{
-          display: 'flex',
-          alignItems: 'center',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          mt: '1.5rem',
-          height: '80vh',
-        }}
+        sx={styles.container}
       >
         <Container
           className="container__createAccount"
           maxWidth="sm"
-          sx={{
-            width: '80vw',
-            borderRadius: '5px',
-            py: '1rem',
-            textAlign: 'center',
-            backgroundColor: 'rgb(154, 183, 192, 0.3)',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
+          sx={styles.containerCreateAccount}
         >
           <Typography
             variant="h2"
@@ -258,39 +274,37 @@ function SignupPage() {
                 label="J'accepte les CGU"
               />
             </div>
-            <Link
-              href="/login"
-              sx={styles.alreadyAnAccount}
-              underline="none"
-              variant="button"
+            <Box
+              sx={styles.containerFooter}
             >
-              Déjà un compte ?
-              <Typography
-                component="span"
-                sx={styles.alreadyAnAccountSpan}
+              <Link
+                href="/login"
+                sx={styles.alreadyAnAccount}
+                underline="none"
+                variant="button"
               >
-                Connectez vous !
-              </Typography>
-            </Link>
-            <Button
-              type="submit"
-              sx={styles.buttonStyle}
-              variant="contained"
-            >
-              Valider
-            </Button>
+                Déjà un compte ?
+                <Typography
+                  component="span"
+                  sx={styles.alreadyAnAccountSpan}
+                >
+                  Connectez vous !
+                </Typography>
+              </Link>
+              <Button
+                type="submit"
+                sx={styles.buttonStyle}
+                variant="contained"
+              >
+                Valider
+              </Button>
+            </Box>
           </form>
         </Container>
         <Typography
+          className="container__text"
           paragraph
-          sx={{
-            width: '80%',
-            textAlign: 'center',
-            fontSize: '0.7rem',
-            mt: '0.5rem',
-            fontStyle: 'italic',
-          }}
-          className="container-text"
+          sx={styles.containerText}
         >
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad, dicta earum vero.
         </Typography>

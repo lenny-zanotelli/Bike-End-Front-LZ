@@ -37,14 +37,15 @@ const styles = {
     flexDirection: 'column',
   },
   containerConnect: {
-    width: '70vw',
+    display: 'flex',
+    flexDirection: 'column',
     mt: '3rem',
     borderRadius: '5px',
     p: '1rem',
     textAlign: 'center',
     backgroundColor: 'rgb(154, 183, 192, 0.3)',
     '@media only screen and (min-device-width : 900px)': {
-      maxWidth: '35%',
+      width: '25rem',
     },
   },
   containerConnectTitle: {
@@ -123,7 +124,6 @@ function LoginPage() {
       <Container
         className="container"
         component="main"
-        maxWidth="lg"
         sx={styles.mainContainer}
       >
         <Box
